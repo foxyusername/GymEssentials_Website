@@ -60,24 +60,29 @@ if(currentPath === "/signup"){
 }
 
 return <div className="registerMainDiv">
+<div className="registerCenterDiv">
+<header>
+  <img src="https://cdn.icon-icons.com/icons2/644/PNG/512/red_gym_icon-icons.com_59513.png" alt="website logo" />
+  <h1>WELCOME TO GYMESSENTIALS</h1>
 
- <header>
-  <h1>{currentPath === '/signup' ? 'Signup' : 'Login'}</h1>
- </header>
+  <p>REGISTER AND START SHOPPING</p>
+</header>
 
   <section>
-    <span><i class="fa-solid fa-user"></i>: <input onChange={usernameValue} type="text" placeholder="Username" /></span>
-   {currentPath === "/signup" && <span><i class="fa-solid fa-envelope"></i>: <input onChange={emailValue} type="email" placeholder="Email" /></span>}
+    <span><i class="fa-solid fa-user"></i> <input onChange={usernameValue} type="text" placeholder="Username" /></span>
+   {currentPath === "/signup" && <span><i class="fa-solid fa-envelope"></i> <input onChange={emailValue} type="email" placeholder="Email" /></span>}
     <span>
-    <i class="fa-solid fa-lock"></i>:
+    <i class="fa-solid fa-lock"></i>
     <input onChange={passwordValue} type={passwordVisible ? "text" : "password"} placeholder="Password" />
-   {passwordVisible ? <i onClick={togglePasswordVisibility} class="fa-solid fa-eye-slash"></i> : <i onClick={togglePasswordVisibility} class="fa-solid fa-eye"></i>}
+   {passwordVisible ? <i onClick={togglePasswordVisibility} id="eyeIcon" class="fa-solid fa-eye-slash"></i> : <i onClick={togglePasswordVisibility} id="eyeIcon" class="fa-solid fa-eye"></i>}
     </span>
   </section>
 
-  <button onClick={submitBtn}>{currentPath === "/signup" ? 'Sign Up' : 'Sign In'}</button>
+  {currentPath === "/signup" ? <p id="redirectTxt">Already have an account? <a href="/login">Login here</a></p>: <p id="redirectT">Don't have an account? <a href="/signup">Signup here</a></p>}
 
-  {currentPath === "/signup" ? <p>Already have an account? <a href="/login">Login here</a></p>: <p>Don't have an account? <a href="/signup">Signup here</a></p>}
+  <button onClick={submitBtn}>{currentPath === "/signup" ? 'SIGNUP' : 'LOGIN'}</button>
+
+</div>
 </div>
 }
 

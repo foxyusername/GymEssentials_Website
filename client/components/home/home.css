@@ -1,0 +1,13 @@
+.homeMainDiv{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: 100svh;
+}
+
+.homeCenterDiv{
+    border: 1px solid red;
+    width: 95%;
+    height: 100svh;
+}

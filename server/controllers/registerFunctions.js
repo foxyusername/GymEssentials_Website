@@ -45,7 +45,7 @@ if(result.length === 0){
 
   res.cookie('jwt',token,{
     httpOnly: true,
-    sameSite: 'none'
+    sameSite: 'strict'
 })
 
   res.status(200).json({message:"logged in succesfully",status:1});

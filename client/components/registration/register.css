@@ -1,0 +1,100 @@
+.registerMainDiv{
+    width:100%;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registerCenterDiv{
+ width: 95%;
+ height: 100svh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 40px;
+ max-width: 600px;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top:30px;
+    gap: 20px;
+}
+
+header h1{
+ font-family: 'jockey one';
+}
+
+header p{
+    font-family: "Carrois Gothic";
+    font-size: 1rem;
+}
+
+header img{
+    width: 150px;
+    height: 150px;
+}
+
+.registerCenterDiv section{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 10px;
+    position: relative;
+}
+
+.registerCenterDiv section span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.registerCenterDiv section span i{
+   font-size: 20px;
+}
+
+.registerCenterDiv section span input{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-size: 1rem;
+    font-family: "Mate";
+}
+
+#eyeIcon{
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+}
+
+#redirectTxt{
+ font-family: "Carrois Gothic";
+}
+
+.registerCenterDiv button{
+  width: 85%;
+  border-radius: 15px;
+  height: 45px;
+  background-color: #FB3C3D;
+  color: white;
+  font-family: 'Magra';
+  font-size: 1.2rem;
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+
+@media only screen and (min-width:800px){
+  .registerCenterDiv{
+        justify-content: center;
+  }
+
+  .header{
+    margin-top: 0px;
+  }
+}
