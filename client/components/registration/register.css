@@ -39,7 +39,7 @@ header img{
     height: 150px;
 }
 
-.registerCenterDiv section{
+.registerCenterDiv form{
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -47,17 +47,17 @@ header img{
     position: relative;
 }
 
-.registerCenterDiv section span{
+.registerCenterDiv form span{
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.registerCenterDiv section span i{
+.registerCenterDiv form span i{
    font-size: 20px;
 }
 
-.registerCenterDiv section span input{
+.registerCenterDiv form span input{
     width: 100%;
     height: 50px;
     border-radius: 10px;
@@ -88,6 +88,42 @@ header img{
   cursor: pointer;
 }
 
+.errorDiv{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.459);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.errorDiv div{
+ display: flex;
+ width: 80%;
+ max-width: 300px;
+ flex-direction: column;
+ background-color: white;
+ align-items: center;
+ padding: 40px;
+ gap: 20px;
+ border-radius: 10px;
+ border: 2px solid black;
+ box-shadow: 2px 2px 10px rgb(247, 246, 246);
+}
+
+.errorDiv div i{
+    font-size: 4rem;
+}
+
+#errorMessage{
+    font-size: 1.5rem;
+    color: red;
+    font-family: sans-serif;
+    z-index: 1;
+    text-align: center;
+}
 
 @media only screen and (min-width:800px){
   .registerCenterDiv{

@@ -7,7 +7,7 @@
 }
 
 .homeCenterDiv{
-    border: 1px solid red;
     width: 95%;
     height: 100svh;
+    max-width: 1000px;
 }
