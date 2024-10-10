@@ -1,0 +1,191 @@
+.searchMainDiv{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search_input_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+    gap: 5px;
+}
+
+.search_input_div input{
+    width: 80%;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 1rem;
+    font-family:'carrois gothic';
+}
+
+.search_input_div button{
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 1.3rem;
+    padding: 10px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.search_filter_div{
+ display: flex;
+ gap: 40px;
+ font-size: 1.1rem;
+ justify-content: center;
+ position: relative;
+}
+
+.search_filter_div p{
+    font-family: 'ABeeZee';
+    cursor: pointer;
+}
+
+.search_filter_div i{
+  transition: all 0.3s ease;
+}
+
+.priceFilterer{
+position: absolute;
+display: flex;
+flex-direction: column;
+gap: 10px;
+top: 70px;
+background-color: white;
+border:1px solid black;
+padding: 10px;
+border-radius: 5px;
+width: 95%;
+}
+
+.priceFilterer input{
+height: 40px;
+text-align: center;
+font-size: 1rem;
+}
+
+.priceFilterer button{
+    height: 50px;
+    background-color:#FB3C3D;
+    color: white;
+    font-size: 1.2rem;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.radioBtnsDiv{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.radioBtnsDiv label{
+    display: flex;
+    flex-direction: column;
+    font-family: 'ABeeZee';
+    gap: 10px;
+}
+
+.radioBtnsDiv label input{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.productsFilterer{
+    border: 1px solid black;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top:70px;
+    border-radius: 10px;
+    background-color: white;
+    width: 95%;
+    padding: 10px;
+}
+
+.productsFilterer section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.productsFilterer section p{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    font-family:'carrois gothic';
+    color:white;
+    padding: 5px;
+    position: relative;
+    width: 100%;
+    border: 1px solid rgba(35, 35, 35, 0.561);
+    border-radius: 5px;
+    height: 30px;
+    background-color:#2A2A2A;
+}
+
+.productsFilterer section p i{
+    color: rgb(255, 255, 255);
+    position: absolute;
+    right: 10px;
+}
+
+.productsFilterer button{
+    width: 95%;
+    height: 50px;
+    background-color:#FB3C3D;
+    color: white;
+    font-size: 1.2rem;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width:800px){
+  .searchMainDiv{
+    flex-direction: row;
+    margin-top: 620px;
+    width: 100%;
+    border: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(56, 55, 55);
+  }
+
+  .search_input_div{
+    width: 50%;
+    align-items: center;
+  }
+
+  .search_input_div button{
+    border: 0;
+    font-size: 1.8rem;
+  }
+
+  .search_filter_div{
+    width: 50%;
+    align-items: center;
+  }
+}
+
+@media(hover:hover){
+    .search_input_div button:hover{
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.1);
+    }
+
+    #options:hover{
+        transition: all 0.1s ease-in-out;
+        transform: scale(1.15);
+    }
+}

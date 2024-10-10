@@ -83,7 +83,7 @@ return <div className="registerMainDiv">
 </div>
 }
 
-<header>
+<header className="registerHeader">
   <img src="https://cdn.icon-icons.com/icons2/644/PNG/512/red_gym_icon-icons.com_59513.png" alt="website logo" />
   <h1>WELCOME TO GYMESSENTIALS</h1>
 

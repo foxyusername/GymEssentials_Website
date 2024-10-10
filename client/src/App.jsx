@@ -6,13 +6,13 @@ const Home = lazy(()=> import('../components/home/Home.jsx'));
 
 function App() {
   return <BrowserRouter>
-    
+  <Suspense fallback={<div>Loading...</div>}>
  <Routes>
   <Route path="/login" element={<Register />} />
   <Route path="/signup" element={<Register />} />
   <Route path="/home" element={<Home />}/>
  </Routes>
-
+ </Suspense>
   </BrowserRouter>
 }
 

@@ -16,7 +16,7 @@
  max-width: 600px;
 }
 
-header{
+.registerHeader{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,16 +25,16 @@ header{
     gap: 20px;
 }
 
-header h1{
+.registerHeader h1{
  font-family: 'jockey one';
 }
 
-header p{
+.registerHeader p{
     font-family: "Carrois Gothic";
     font-size: 1rem;
 }
 
-header img{
+.registerHeader img{
     width: 150px;
     height: 150px;
 }
@@ -130,7 +130,7 @@ header img{
         justify-content: center;
   }
 
-  .header{
+  .registerHeader{
     margin-top: 0px;
   }
 }
