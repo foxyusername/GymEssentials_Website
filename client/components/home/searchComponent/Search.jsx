@@ -86,6 +86,11 @@ return <div className="searchMainDiv">
     </div>}
     
     </section>
+
+    <div className="searchResult">
+        <h1>Wrist Wraps, pull-up bars, dip bars</h1>
+        <p>From 100 To 200 USD</p>
+    </div>
 </div>
 
 }

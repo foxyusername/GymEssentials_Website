@@ -47,6 +47,22 @@
     position: relative;
 }
 
+.registerCenterDiv form h2{
+    color: red;
+    font-size: 1rem;
+    text-align: center;
+    font-family:sans-serif;
+}
+
+.registerCenterDiv form p{
+    border: 2px solid red;
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: sans-serif;
+    color: red;
+    padding: 5px
+}
+
 .registerCenterDiv form span{
     display: flex;
     align-items: center;
@@ -111,10 +127,16 @@
  border-radius: 10px;
  border: 2px solid black;
  box-shadow: 2px 2px 10px rgb(247, 246, 246);
+ position: relative;
 }
 
 .errorDiv div i{
     font-size: 4rem;
+}
+
+.errorDiv div p{
+    text-align: center;
+    font-size: 1.1rem;
 }
 
 #errorMessage{
@@ -125,6 +147,19 @@
     text-align: center;
 }
 
+#closeBtn{
+  position: absolute;
+  right:10px;
+  top: 10px;
+  width: 40px;
+  height: 40px;
+  display: none;
+}
+
+#closeBtn i{
+    font-size: 1.1rem;
+}
+
 @media only screen and (min-width:800px){
   .registerCenterDiv{
         justify-content: center;
@@ -132,5 +167,9 @@
 
   .registerHeader{
     margin-top: 0px;
+  }
+
+  #closeBtn{
+    display: block;
   }
 }

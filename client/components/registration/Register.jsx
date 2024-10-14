@@ -4,14 +4,15 @@ import {useLocation,useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { useRef } from "react";
 
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 function Register(){
 
 
 let formRef = useRef();
 
-const [password,setPassword] = useState('');
-const [email,setEmail] = useState('');
-const [username,setUsername] = useState('');
 const [passwordVisible,setPasswordVisible] = useState(false);
 const [error,setError] = useState('');
 
@@ -20,49 +21,63 @@ let history = useNavigate();
 
 const currentPath = location.pathname;
 
-function passwordValue(e){
- setPassword(e.target.value);
-}
+const schema = yup.object().shape({
+  username: yup
+  .string()
+  .required('Username is required')
+  .max(16)
+  .matches(/^\S*$/, 'Username cannot contain spaces'), // No spaces allowed
 
-function emailValue(e){
- setEmail(e.target.value);
-}
+email: currentPath ==="/signup" && yup
+  .string()
+  .email('Invalid email')
+  .required('Email is required')
+  .min(4)
+  .matches(/^\S*$/, 'Email cannot contain spaces'), // No spaces allowed
 
-function usernameValue(e){
- setUsername(e.target.value);
-}
+password: yup
+  .string()
+  .min(8, 'Password must be at least 8 characters')
+  .required('Password is required')
+  .matches(/^\S*$/, 'Password cannot contain spaces'), // No spaces allowed
+});
+
+const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    resolver: yupResolver(schema),
+});
 
 function togglePasswordVisibility(){
   if(passwordVisible) setPasswordVisible(false);
   if(!passwordVisible) setPasswordVisible(true);
 }
 
-function onFormSubmit(e){
+function onFormSubmit(data){
 
-e.preventDefault();
 
 if(currentPath === "/login"){
 
   axios.post(import.meta.env.VITE_API_URL + "/authenticate/login",{
-    username: username,
-    password: password
+    username: data.username,
+    password: data.password
   },{withCredentials:true})
   .then(res => history('/home'))
-  .catch(err => setError(err.response.data.message))
-
-}
+  .catch(err => {
+    setError(err.response.data.message)
+    reset();
+  })
+  }
 
 if(currentPath === "/signup"){
-  
   axios.post(import.meta.env.VITE_API_URL + "/authenticate/signup",{
-    username: username,
-    email: email,
-    password: password
+    username: data.username,
+    email: data.email,
+    password: data.password
   },{withCredentials:true})
   .then(res => history('/home'))
-  .catch(err => setError(err.response?.data?.message));
-
-}
+  .catch(err => {
+    setError(err.response?.data?.message);
+    reset();
+  })}
 
 }
 
@@ -75,9 +90,15 @@ return <div className="registerMainDiv">
 
 {error.length > 0 && <div className="errorDiv" onClick={()=>{setError('')}}> 
 
+
 <div>
+
+<button id="closeBtn"><i class="fa-solid fa-x"></i></button>
+
 {currentPath === '/login' ? <i class="fa-solid fa-ghost"></i> : <i class="fa-solid fa-user"></i>}
 <p id="errorMessage">{error}</p>
+
+<p>If anything is wrong please contact our support team.</p>
 </div>
 
 </div>
@@ -89,13 +110,15 @@ return <div className="registerMainDiv">
 
   <p>REGISTER AND START SHOPPING</p>
 </header>
-
-  <form ref={formRef} onSubmit={onFormSubmit}>
-    <span><i class="fa-solid fa-user"></i> <input onChange={usernameValue} type="text" placeholder="Username" required/></span>
-   {currentPath === "/signup" && <span><i class="fa-solid fa-envelope"></i> <input onChange={emailValue} type="email" placeholder="Email" required/></span>}
+  <form ref={formRef} onSubmit={handleSubmit(onFormSubmit)}>
+    <h2>{errors.username?.message}</h2>
+    <span><i class="fa-solid fa-user"></i> <input type="text" placeholder="Username..." {...register('username')}/></span>
+    <h2>{errors.email?.message}</h2>
+   {currentPath === "/signup" && <span><i class="fa-solid fa-envelope"></i> <input type="text" placeholder="Email..." {...register('email')}/></span>}
+    <h2>{errors.password?.message}</h2>
     <span>
     <i class="fa-solid fa-lock"></i>
-    <input onChange={passwordValue} type={passwordVisible ? "text" : "password"} placeholder="Password" required minLength={8}/>
+    <input type={passwordVisible ? "text" : "password"} placeholder="Password..." {...register('password')}/>
    {passwordVisible ? <i onClick={togglePasswordVisibility} id="eyeIcon" class="fa-solid fa-eye-slash"></i> : <i onClick={togglePasswordVisibility} id="eyeIcon" class="fa-solid fa-eye"></i>}
     </span>
   </form>
@@ -105,6 +128,8 @@ return <div className="registerMainDiv">
   <button onClick={submitBtn}>{currentPath === "/signup" ? 'SIGNUP' : 'LOGIN'}</button> 
 </div>
 </div>
+
 }
+
 
 export default Register;
